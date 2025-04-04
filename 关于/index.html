@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="关于">
 <meta property='og:description' content="This is a test page for i18n support.">
 <meta property='og:url' content='https://nova-bryan.github.io/%E5%85%B3%E4%BA%8E/'>
-<meta property='og:site_name' content='NovaBryan'>
+<meta property='og:site_name' content='Nova-Bryan'>
 <meta property='og:type' content='article'><meta property='article:section' content='Page' />
 <meta name="twitter:title" content="关于">
 <meta name="twitter:description" content="This is a test page for i18n support.">
@@ -74,7 +74,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">NovaBryan</a></h1>
+            <h1 class="site-name"><a href="/">Nova-Bryan</a></h1>
             <h2 class="site-description">记录学习与生活</h2>
         </div>
     </header><ol class="menu-social">
@@ -96,7 +96,7 @@
             
                 <li>
                     <a 
-                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        href='https://github.com/nova-bryan'
                         target="_blank"
                         title="GitHub"
                         rel="me"
@@ -312,6 +312,56 @@
      
     
         
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="nova-bryan/nova-bryan.github.io"
+    data-repo-id="R_kgDOOTfQCg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOOTfQCs4CowIa"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark');
+            }
+        }
+    })();
+</script>
+
     
 
     <footer class="site-footer">
