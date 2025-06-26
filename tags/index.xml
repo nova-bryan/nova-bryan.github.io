@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tags on Nova-Bryan</title>
+        <link>https://nova-bryan.github.io/tags/</link>
+        <description>Recent content in Tags on Nova-Bryan</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://nova-bryan.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Java后端</title>
+        <link>https://nova-bryan.github.io/tags/java%E5%90%8E%E7%AB%AF/</link>
+        <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://nova-bryan.github.io/tags/java%E5%90%8E%E7%AB%AF/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>算法题目</title>
+        <link>https://nova-bryan.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/</link>
+        <pubDate>Thu, 10 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://nova-bryan.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Markdown</title>
+        <link>https://nova-bryan.github.io/tags/markdown/</link>
+        <pubDate>Sat, 11 May 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://nova-bryan.github.io/tags/markdown/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
