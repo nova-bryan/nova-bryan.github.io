@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Thu, 03 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://nova-bryan.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 08 Jul 2025 15:08:53 +0800</lastBuildDate><atom:link href="https://nova-bryan.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>RabbitMQ</title>
+        <link>https://nova-bryan.github.io/p/rabbitmq/</link>
+        <pubDate>Tue, 08 Jul 2025 15:08:53 +0800</pubDate>
+        
+        <guid>https://nova-bryan.github.io/p/rabbitmq/</guid>
+        <description>&lt;img src="https://nova-bryan.github.io/image.png" alt="Featured image of post RabbitMQ" /&gt;</description>
+        </item>
+        <item>
         <title>LeetCode42.接雨水</title>
         <link>https://nova-bryan.github.io/p/leetcode42.%E6%8E%A5%E9%9B%A8%E6%B0%B4/</link>
         <pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate>
