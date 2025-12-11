@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Java面试手记">
+<title>Java面试手记</title>
+
+<link rel='canonical' href='https://nova-bryan.github.io/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="Java面试手记">
+<meta property='og:description' content="Java面试手记">
+<meta property='og:url' content='https://nova-bryan.github.io/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/'>
+<meta property='og:site_name' content='Nova-Bryan'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Java后端' /><meta property='article:published_time' content='2025-12-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-12-11T00:00:00&#43;00:00'/><meta property='og:image' content='https://nova-bryan.github.io/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image.png' />
+<meta name="twitter:title" content="Java面试手记">
+<meta name="twitter:description" content="Java面试手记"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://nova-bryan.github.io/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu18396025192540646182.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🤪</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Nova-Bryan</a></h1>
+            <h2 class="site-description">记录学习与生活</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://blog.csdn.net/2301_80021118?spm=1000.2115.3001.5343'
+                        target="_blank"
+                        title="csdn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><g fill="#03599C"><path d="M116.5 32.3c-.6-1.1-1.4-2.1-2.3-2.6l-48.1-27.8c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48.5 27.8c-1.7 1-3.4 3.5-3.4 5.4v55.7c0 1.1.7 2.3 1.4 3.4l.1.1c.5.8 1.3 1.5 2 1.9l48.3 27.9c.8.5 2 .7 3.2.7 1.2 0 2.3-.3 3.1-.7l47.5-27.9c1.7-1 2.4-3.5 2.4-5.4v-55.7c0-.8.4-1.8 0-2.6l.5-.2zm-4.2 2.1c0 .3-.3.5-.3.7v55.7c0 .8-.2 1.7-.4 2l-47.6 27.8c-.1.1-.5.2-1.1.2-.6 0-1-.1-1.1-.2l-48.2-27.8s-.1-.1-.2-.1l-.6-.6c-.4-.7.2-1.1-.8-1.2v-55.7c1-.5.9-1.7 1.4-1.9l48.3-27.9c.1 0 .6-.2 1.2-.2s1 .1 1.1.2l48 27.7.4.9c.1.1-.1.3-.1.4zM63 38.5c9.1 0 17.1 5 21.3 12.5l13-7.5c-6.8-11.9-19.6-20-34.3-20-21.8 0-39.5 17.7-39.5 39.5s17.7 39.5 39.5 39.5c14.6 0 27.4-8 34.2-19.8l-12.9-7.6c-4.2 7.4-12.2 12.4-21.3 12.4-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5z"/></g></svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/nova-bryan'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 32 32" height="32px" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Github"><circle cx="16" cy="16" fill="#FFFFFF" r="14.5"/><path d="M30.5,16c0-1.339-0.196-2.631-0.536-3.862C27.83,6.787,22.612,3,16.5,3C8.492,3,2,9.492,2,17.5   c0,1.339,0.196,2.631,0.536,3.862C4.67,26.713,9.888,30.5,16,30.5C24.008,30.5,30.5,24.008,30.5,16z" fill="#80D8FF"/><g><path d="M20.95,29.614c-0.654,0.237-1.349-0.25-1.347-0.946c0.005-1.227,0.01-2.677,0.01-3.69    c0-1.358-0.464-2.246-0.984-2.696c3.23-0.36,6.62-1.591,6.62-7.183c0-1.59-0.561-2.889-1.491-3.907    c0.15-0.369,0.647-1.848-0.144-3.853c0,0-1.215-0.391-3.983,1.492c-1.158-0.323-2.399-0.484-3.63-0.49    c-1.233,0.006-2.473,0.167-3.63,0.49C9.601,6.949,8.383,7.34,8.383,7.34c-0.788,2.004-0.291,3.484-0.141,3.853    c-0.928,1.018-1.493,2.317-1.493,3.907c0,5.578,3.385,6.827,6.605,7.194c-0.415,0.364-0.79,1.006-0.921,1.946    c-0.827,0.373-2.926,1.016-4.221-1.209c0,0-0.766-1.397-2.22-1.5c0,0-1.417-0.018-0.1,0.885c0,0,0.951,0.448,1.609,2.129    c0,0,0.851,2.832,4.885,1.952c0.003,0.522,0.007,1.358,0.011,2.169c0.003,0.694-0.688,1.189-1.34,0.952    c-1.435-0.521-2.765-1.261-3.949-2.18C9.565,29.35,12.646,30.5,16,30.5c3.279,0,6.294-1.102,8.724-2.938    C23.584,28.421,22.316,29.118,20.95,29.614z" fill="#FFFFFF"/></g><path d="M11.393,30.176c-0.171,0-0.342-0.029-0.506-0.089C4.695,27.841,0.728,21.911,1.015,15.33   c0.012-0.275,0.232-0.485,0.521-0.478c0.276,0.012,0.49,0.246,0.478,0.521c-0.268,6.142,3.435,11.677,9.214,13.772   c0.151,0.056,0.318,0.033,0.453-0.063c0.139-0.098,0.218-0.25,0.217-0.417l-0.008-1.573c-3.927,0.561-4.857-2.375-4.867-2.406   c-0.552-1.405-1.342-1.82-1.35-1.824c-0.342-0.229-0.996-0.676-0.81-1.262c0.167-0.528,0.852-0.563,1.136-0.572   c1.736,0.122,2.616,1.693,2.652,1.76c0.956,1.643,2.414,1.446,3.335,1.094c0.09-0.452,0.239-0.863,0.439-1.216   c-2.872-0.486-6.176-1.973-6.176-7.568c0-1.531,0.479-2.88,1.424-4.016C7.465,10.408,7.205,8.97,7.917,7.157   C7.972,7.017,8.087,6.91,8.23,6.864C8.374,6.817,9.703,6.47,12.46,8.29c1.119-0.291,2.309-0.442,3.539-0.448   c1.234,0.006,2.423,0.157,3.543,0.448c2.756-1.82,4.08-1.473,4.226-1.426c0.143,0.046,0.257,0.153,0.312,0.292   c0.715,1.813,0.456,3.251,0.247,3.927c0.944,1.133,1.422,2.482,1.422,4.016c0,5.595-3.308,7.078-6.185,7.559   c0.354,0.623,0.549,1.426,0.549,2.32c0,1.013-0.005,2.465-0.01,3.692c0,0.166,0.077,0.315,0.214,0.412   c0.137,0.096,0.306,0.119,0.463,0.063C26.295,27.141,30,21.858,30,16c0-3.863-1.54-7.46-4.335-10.129   c-2.794-2.667-6.462-4.037-10.336-3.855c-0.275,0.021-0.509-0.201-0.523-0.476c-0.013-0.276,0.2-0.51,0.476-0.523   c4.152-0.19,8.08,1.274,11.073,4.131C29.351,8.007,31,11.861,31,16c0,6.277-3.97,11.937-9.878,14.084   c-0.463,0.167-0.978,0.099-1.38-0.185c-0.401-0.283-0.64-0.744-0.638-1.233c0.005-1.226,0.01-2.676,0.01-3.688   c0-1.459-0.567-2.107-0.811-2.317c-0.15-0.13-0.21-0.337-0.151-0.526c0.059-0.19,0.225-0.327,0.422-0.349   c3.054-0.34,6.176-1.401,6.176-6.686c0-1.38-0.458-2.582-1.36-3.569c-0.13-0.143-0.167-0.347-0.094-0.526   c0.139-0.34,0.524-1.537-0.042-3.198c-0.423,0.012-1.503,0.189-3.34,1.44c-0.122,0.083-0.274,0.109-0.416,0.068   c-1.084-0.302-2.293-0.465-3.499-0.472c-1.218,0.006-2.395,0.165-3.494,0.472c-0.141,0.042-0.293,0.015-0.416-0.068   c-1.83-1.245-2.91-1.427-3.346-1.438c-0.563,1.661-0.177,2.855-0.039,3.196c0.072,0.179,0.036,0.383-0.094,0.525   c-0.904,0.991-1.362,2.192-1.362,3.57c0,5.282,3.115,6.35,6.162,6.697c0.196,0.022,0.361,0.158,0.42,0.347   c0.059,0.188,0.001,0.395-0.147,0.525c-0.224,0.197-0.621,0.672-0.756,1.64c-0.023,0.17-0.133,0.316-0.29,0.386   c-0.75,0.338-3.316,1.237-4.858-1.413c-0.011-0.019-0.525-0.921-1.444-1.186c0.326,0.218,1.077,0.852,1.631,2.265   c0.043,0.133,0.808,2.409,4.313,1.646c0.148-0.031,0.301,0.003,0.419,0.098c0.118,0.094,0.187,0.237,0.188,0.387l0.011,2.17   c0.002,0.491-0.237,0.955-0.641,1.239C12,30.082,11.698,30.176,11.393,30.176z" fill="#455A64"/><path d="M15.737,31C7.474,31,1,24.411,1,16c0-3.629,1.238-7.111,3.485-9.804c0.176-0.212,0.493-0.241,0.704-0.063   C5.401,6.31,5.43,6.625,5.253,6.837C3.155,9.35,2,12.604,2,16c0,7.851,6.034,14,13.737,14C23.602,30,30,23.72,30,16   S23.602,2,15.737,2c-2.441,0-4.812,0.62-6.858,1.792C8.641,3.927,8.334,3.845,8.197,3.606C8.06,3.366,8.143,3.061,8.382,2.923   C10.579,1.665,13.123,1,15.737,1C24.153,1,31,7.729,31,16S24.153,31,15.737,31z" fill="#455A64"/><g><g><g><g><g><g><path d="M7.543,4.552c0,0.275-0.225,0.5-0.5,0.5l0,0c-0.275,0-0.5-0.225-0.5-0.5l0,0         c0-0.275,0.225-0.5,0.5-0.5l0,0C7.318,4.052,7.543,4.276,7.543,4.552L7.543,4.552z" fill="#455A64"/></g></g></g></g></g></g></g></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#缓存">缓存</a>
+      <ol>
+        <li><a href="#缓存三兄弟穿透击穿雪崩">缓存三兄弟（穿透，击穿，雪崩）</a></li>
+        <li><a href="#双写一致性">双写一致性</a></li>
+        <li><a href="#缓存的持久化">缓存的持久化</a></li>
+        <li><a href="#缓存数据过期策略">缓存数据过期策略</a></li>
+        <li><a href="#缓存数据淘汰策略">缓存数据淘汰策略</a></li>
+      </ol>
+    </li>
+    <li><a href="#分布式锁">分布式锁</a></li>
+    <li><a href="#集群方案">集群方案</a></li>
+    <li><a href="#redis是单线程的但是为什么还那么快">redis是单线程的，但是为什么还那么快</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#定位慢查询">定位慢查询</a></li>
+    <li><a href="#分析慢sql">分析慢sql</a></li>
+    <li><a href="#索引">索引</a></li>
+    <li><a href="#sql优化">sql优化</a></li>
+    <li><a href="#事务">事务</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/">
+                <img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image_hu547743554728521660.png"
+                        srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image_hu547743554728521660.png 800w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image_hu9061791967262762568.png 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post Java面试手记" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/java%E5%90%8E%E7%AB%AF/" >
+                Java后端
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/">Java面试手记</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Java面试手记
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-12-11</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="redis面试经典案例">Redis面试经典案例
+</h1><h2 id="缓存">缓存
+</h2><h3 id="缓存三兄弟穿透击穿雪崩">缓存三兄弟（穿透，击穿，雪崩）
+</h3><p>​	1.缓存穿透：进行查询操作的时候，先查询redis，没有命中的话查询db，db如果查询到了数据，先写入redis进行缓存重构，然后返回数据，但是如果恶意攻击，大量请求不存在的数据，那么请求会一直打到数据库，数据库并发量小，会导致宕机，这就是缓存穿透
+​	解决办法：1.使用布隆过滤器，布隆过滤器实际上是一个bitmap的数组，在启动redis时，先对布隆过滤器进行初始化，将key存储到布隆过滤器中，（原理是，会使用三个不同的hash算法，计算出三个不同的值，并将bitmap中的值改为1），查询请求到业务层的时候，会先进行判断，如果布隆过滤器中没有对应的key，那么直接返回null，但是布隆过滤器存在误判和内存占用率的问题，首先，如果计算出的hash值，正好与其他两个key计算出的值对应上了，那么也会判断为存在，进行查询，第二，想要误判率小，那么就要扩大bitmap这个数组的长度，增大了内存的占用，在使用布隆过滤器时，可以对数组长度和误判率进行初始化调整
+​		  2.将空值也缓存到redis中，即便数据库查询为空，也将对应的key和null存储到redis中，让下次请求不打到数据库，直接命中redis，但是会造成脏数据占用多的问题，
+​			个人觉得，小项目中使用方法二，大项目使用方法一</p>
+<p>​	2.缓存击穿：在进行查询操作的时候，如果热点数据突然过期，第一个请求会进行缓存重建，但是在缓存重建的过程中，如果有大量请求并发，会有大量并发请求到数据库，此时数据库承受不住高并发，会导致宕机，这就是缓存击穿。</p>
+<p>​	解决办法：1.使用互斥锁，在第一个请求到达业务层时，先进行判断，如果此时redis未命中，那么先获取锁，获取到锁之后查询数据库，并将数据库中的数据在redis中进行缓存重建，然后释放锁，返回数据。别的请求到达业务层后，redis未命中，同时获取锁失败，就会进行自旋，重新查询redis，直到获取到redis中的数据。优点是有强一致性，缺点是性能差。</p>
+<p>​			  2.使用逻辑过期，也就是在redis中构建数据时，加上一个expire的过期字段，设置上过期时间，在第一个请求redis中命中数据之后，先检查一下逻辑过期时间，如果过期，那么获取锁，同时，新开一个线程，并返回过期数据，在新线程中，完成缓存重建。其他请求命中redis后，尝试获取锁，获取锁失败，直接返回当前旧数据。优点是性能好，高可用，但是不能保证数据强一致性</p>
+<p>​			个人觉得，使用逻辑过期更为合理，因为这样用户体验较好</p>
+<p>​	3.缓存雪崩：是指在同一时段，redis中有大量的key过期或者redis宕机，那么大量请求同时打到数据库，会给数据库带来巨大压力，可能导致数据库直接宕机，这就是缓存雪崩</p>
+<p>​	解决办法：1.给不同的key增加随机的TTL随机值</p>
+<p>​			  2.如果是redis宕机，那么解决方案就是搭建redis集群提高服务的可用性（哨兵模式，集群模式）</p>
+<p>​			  3.给缓存业务增加降级限流策略（nginx或者是spring cloud gateway）降级限流可以作为缓存所有问题的保底策略</p>
+<p>​			  4.给业务添加多级缓存（Guava或Caffeine）但是这两个我都没了解过，多级缓存的话，我知道jvm有一个缓存机制，还有数据库也有自己的缓存机制</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20251206175348720.png"
+	width="641"
+	height="336"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20251206175348720_hu6996477413947000950.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20251206175348720_hu17556191960815114166.png 1024w"
+	loading="lazy"
+	
+		alt="image-20251206175348720"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="190"
+		data-flex-basis="457px"
+	
+></p>
+<h3 id="双写一致性">双写一致性
+</h3><p>​	redis作为缓存，mysql中的数据如何与redis中数据进行同步，这就是双写一致性</p>
+<p>​	首先，可以采用延迟双删的策略，就是先删除缓存，然后更改数据库，然后延时再删除一次缓存，这样后面查询的时候，拿到的就是数据库中最新的数据，但是延时多久拿，这个不太好确定</p>
+<p>​	还有一个问题就是，先删除缓存还是先删除数据库，都会有脏数据的出现，所以其实先后不重要</p>
+<p>​	1.允许延时一致的业务</p>
+<p>​		可以使用MQ等中间件，更新数据之后，通知缓存删除</p>
+<p>​		可以使用canal中间件，不需要修改业务代码，伪装为mysql的一个从节点，canal可以通过监听mysql的binlog文件，当所监听的表数据发生了修改操作时，会通知缓存进行删除</p>
+<p>​	2.要求数据强一致性的业务</p>
+<p>​		采用redisson提供的读写锁</p>
+<p>​		共享锁：读锁readlock，加锁之后，别的线程也可以进行读操作，但是不能进行写操作</p>
+<p>​		排他锁：writelock，也叫独占锁，加锁之后，别的线程无法进行读写操作，实际上底层也是 一个setnx，保证同一时间只有一个线程操作锁</p>
+<h3 id="缓存的持久化">缓存的持久化
+</h3><p>redis作为缓存，提供了两种数据持久化的方式，RDB和AOF</p>
+<p>RDB是一个二进制快照文件，将redis内存存储的数据写到磁盘上，当redis宕机需要新的实例时，从RDB快照文件中读取数据，但是这也会造成短时间的数据丢失，优点是文件小，数据恢复的速度快，但是占用的cpu和内存资源也较多</p>
+<p>AOF是一个追加文件，也就是在redis进行写操作的时候，会将redis的操作命令记录下来，存储到磁盘中，当redis宕机时，会从这个文件中再执行一次命令，优点是数据基本不会丢失，但是恢复的速度慢</p>
+<h3 id="缓存数据过期策略">缓存数据过期策略
+</h3><p>​	1.惰性删除： 在需要使用到key的时候，先判断下其是否过期，如果过期，那么就删除当前key，这样的好处是，不会浪费cpu的资源来查询没有过期的key，坏处是，如果过期的key过多但是没有使用到，会占用内存</p>
+<p>​	2.定期删除：每隔一段时间，就对redis中的key进行检查，删除其中过期的key</p>
+<p>​		SLOW模式：一个定时任务，执行的默认频率为10hz，每次不超过25ms，可以通过修改redis的配置文件的hz选项来进行调整</p>
+<p>​		FAST模式：执行频率不固定，但是两次之间间隔不低于2ms，每次耗时不超过1ms</p>
+<p>​		优点：可以通过限制删除操作的时长和频率来减少操作对cpu的影响，定期删除，也能减少过期key对内存的占用</p>
+<p>​		缺点：难以确定删除操作的时长和频率</p>
+<p>​	redis 的过期策略是，惰性删除＋定期删除配合使用</p>
+<h3 id="缓存数据淘汰策略">缓存数据淘汰策略
+</h3><p>​	当redis中的内存不够用时，往redis中放入新的key，这时redis会按照某一种规则将内存中的数据删除掉，这就是缓存数据淘汰策略</p>
+<p>​	redis中支持8种不同的策略来选择要删除的key</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:left">策略名称</th>
+<th style="text-align:left">淘汰范围</th>
+<th style="text-align:left">淘汰算法</th>
+<th style="text-align:left">适用场景</th>
+<th style="text-align:left">特点说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>noeviction</strong></td>
+<td style="text-align:left">不淘汰</td>
+<td style="text-align:left">无淘汰</td>
+<td style="text-align:left">关键数据存储，数据安全优先</td>
+<td style="text-align:left">内存不足时拒绝写入，确保数据不丢失</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>allkeys-lru</strong></td>
+<td style="text-align:left">所有键</td>
+<td style="text-align:left">LRU（最近最少使用）</td>
+<td style="text-align:left">通用缓存场景，全部数据可淘汰</td>
+<td style="text-align:left">近似LRU算法，采样淘汰最久未访问的键</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>volatile-lru</strong></td>
+<td style="text-align:left">仅有过期时间的键</td>
+<td style="text-align:left">LRU（最近最少使用）</td>
+<td style="text-align:left">缓存与持久数据混合存储</td>
+<td style="text-align:left">只淘汰设置了过期时间的键中的LRU键</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>allkeys-random</strong></td>
+<td style="text-align:left">所有键</td>
+<td style="text-align:left">随机选择</td>
+<td style="text-align:left">访问模式均匀的场景</td>
+<td style="text-align:left">从所有键中随机选择淘汰</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>volatile-random</strong></td>
+<td style="text-align:left">仅有过期时间的键</td>
+<td style="text-align:left">随机选择</td>
+<td style="text-align:left">缓存数据随机访问模式</td>
+<td style="text-align:left">从有过期时间的键中随机选择淘汰</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>volatile-ttl</strong></td>
+<td style="text-align:left">仅有过期时间的键</td>
+<td style="text-align:left">TTL（存活时间）</td>
+<td style="text-align:left">希望尽快释放过期键内存</td>
+<td style="text-align:left">淘汰剩余生存时间最短的键</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>allkeys-lfu</strong></td>
+<td style="text-align:left">所有键</td>
+<td style="text-align:left">LFU（最不经常使用）</td>
+<td style="text-align:left">热点数据明显的场景</td>
+<td style="text-align:left">淘汰访问频率最低的键，保留热点数据</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>volatile-lfu</strong></td>
+<td style="text-align:left">仅有过期时间的键</td>
+<td style="text-align:left">LFU（最不经常使用）</td>
+<td style="text-align:left">缓存数据中有明显热点</td>
+<td style="text-align:left">从有过期时间的键中淘汰访问频率最低的键</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="分布式锁">分布式锁
+</h2><p>redisson实现分布式锁，其底层原理其实是setnx和lua脚本，可以保证原子性</p>
+<p>在redisson提供的分布式锁中，可以通过看门狗机制来有效延长锁的持有时间，一个线程获取锁成功后，watchdog会给持有锁的线程进行续期，默认是每十秒续一次，避免业务还没完成，但是锁已经释放的情况</p>
+<p>redisson的锁是可以实现重入的，因为redisson的锁在redis中使用的是hash结构，有一个大key，一个小key，大key可以自定义，但是小key就是当前线程的唯一id，如果是同一线程，那么就可以进行重入，一般需要使用到重入的情况，都是业务比较复杂</p>
+<p>红锁可以解决redis主从数据一致的问题，但是性能很差，在redis集群中，通常使用的是主从集群结构，主节点一般负责写数据，从节点一般负责读数据，当有一台redis宕机之后，从节点成为主节点，当有一个线程获取到锁之后，主节点宕机，主节点还没来得及将数据同步到从节点，此时从节点成为了主节点，又有一个线程来获取锁，那么就会发生一把锁，两个线程持有的情况，不满足互斥锁的特性，会导致有脏数据，如果是需要主从数据一致性强的业务，建议使用zookeeper，zookeeper能保证数据的一致性</p>
+<h2 id="集群方案">集群方案
+</h2><p>单节点redis的并发能力是有限的，如果要提供redis的并发能力，那么就需要构建redis集群，实现读写分离，一般都是一主多从，主节点负责写数据，从节点负责写数据，这就是redis的主从同步</p>
+<p>​	1.主从复制</p>
+<p>​		全量同步：从节点执行replicaof命令，与主节点建立连接，从节点会向主节点发送一个replid和offset，replid是数据集id，id一致说明是同一个数据集，主节点先判断id是否与自己一致，如果不一致，那么说明是第一次同步，主节点返回自己的relid和当前的偏移量offset从节点，同时主节点执行bgsave，生成一个RDB文件，发送给从节点，在生成RDB的过程中，可能还会有命令执行，这时主节点会用一个repl_baklog的日志文件来记录RDB期间所有的命令，并发送给从节点，从节点将RDB文件加载后，再根据日志文件执行命令，offset就是日志文件中的偏移量，如果从节点的offset低于了主节点的offset，那么说明需要更新</p>
+<p>​		增量同步：从节点请求同步数据，如果不是第一次请求，那么获取到从节点的offset值，然后将repl_baklog中获取到offset值后的数据，发送给从节点，从节点执行命令，进行数据同步</p>
+<p>​	2.哨兵模式</p>
+<p>​		哨兵的作用，来实现主从集群的自动故障恢复 （监控，自动故障恢复，通知）</p>
+<p>​		哨兵模式的主要作用其实就是为了保证redis集群的高可用， 每一个sentinel都会去监听所有的实例，如果超过一般的哨兵都发现实例没有响应，那么哨兵就会认为这个实例已经宕机</p>
+<p>​		集群脑裂问题：当某一个时间段，sentinel和主节点和从节点不在一个网络分区，此时哨兵没有监测到主节点master的心跳，那么哨兵就会将从节点升为主节点，但是此时客户端的服务还在之前的主节点写入数据，当网络恢复之后，之前的主节点会强制降为从节点，清除数据，然后跟新的主节点同步数据，此时，就会造成大量数据的丢失，因为在同一时间段，出现了两个master，就像大脑分裂了一样，这就是集群脑裂问题</p>
+<p>​			解决办法：可以通过修改redis的配置，可以设置最少的从节点数量，也就是如果当前master没有从节点，那么就拒绝请求，以及缩短主从数据同步的延迟时间，也就是master与slave之间的数据同步时间要短，如果出现脑裂，那么是没有办法同步数据的，如果达不到要求，那么也拒绝请求</p>
+<p>​	3.分片集群</p>
+<p>​		解决海量存储问题，高并发写的问题</p>
+<p>​		通过redis集群的分片，实现大量数据存储，集群中有多个master节点，每个master存储不同的数据，每个master还可以拥有自己的slave节点，可以形成主从集群的关系，因为有多个master，可以解决高并发写的问题，多个slave，也可以解决高并发读的问题，并且master之间还可以通过ping检测彼此健康状态，相当于自带了哨兵，客户端请求可以发送到任意节点，集群会自动路由，最终请求会转发到正确的节点</p>
+<p>​		因为redis分片集群引入了hash槽的概念，redis集群有16384个哈希槽，每个key通过crc16校验后对16384取模，决定放置于哪个槽，集群的每个节点负责一部分哈希槽</p>
+<h2 id="redis是单线程的但是为什么还那么快">redis是单线程的，但是为什么还那么快
+</h2><p>因为redis是纯内存操作，并且完成基于C语言完成，执行速度非常快，采用单线程，避免不必要的上下文切换可竞争条件，多线程还要考虑线程安全问题，使用了多路复用IO模型，非阻塞IO</p>
+<p>多路复用IO模型：使用单个线程同时监听多个socket，并在某个socket可读和可写时，得到通知，从而避免无效的等待，充分利用cpu资源，目前I/O多路复用普通采用的都是epoll模式，它会在通知用户进程socket准备就绪的同时，把已就绪的socket写入用户空间，不需要遍历socket来确定是否就绪，提升了性能</p>
+<p>redis的网络模型：redis的网络模型就是使用了多路复用IO和任务派发的机制来应对多个socket请求</p>
+<p>连接应答处理器</p>
+<p>命令恢复处理器	在 redis 6.0之后，使用了多线程</p>
+<p>命令请求处理器	在redis 6.0之后，将命令的转换使用了多线程，增加命令转换的速度，但是命令的执行还是单线程</p>
+<h1 id="mysql面试经典案例">MySQL面试经典案例
+</h1><p>mysql的优化</p>
+<h2 id="定位慢查询">定位慢查询
+</h2><p>如聚合查询，多表查询，表数据量过大查询，深度分页查询（表象：查询时间过长，接口返回数据时间过慢）</p>
+<p>方案1：开源工具</p>
+<p>调试工具：Arthas	运维工具：Prometheus，Skywalking</p>
+<p>方案2：mysql自带的慢日志（一般测试阶段使用，生产环境中会损失mysql的性能）</p>
+<h2 id="分析慢sql">分析慢sql
+</h2><p>MySQL EXPLAIN 工具字段详解表</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:left">字段</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">常见值/含义</th>
+<th style="text-align:left">优化建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>id</strong></td>
+<td style="text-align:left">查询标识符</td>
+<td style="text-align:left">1. 数字：执行顺序（越大越先执行） 2. 相同id：从上到下执行 3. 不同id：id大的先执行</td>
+<td style="text-align:left">用于理解复杂查询的执行顺序</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>select_type</strong></td>
+<td style="text-align:left">查询类型</td>
+<td style="text-align:left">1. SIMPLE：简单查询（无子查询/UNION） 2. PRIMARY：主查询 3. SUBQUERY：子查询 4. DERIVED：派生表（FROM子句中的子查询） 5. UNION：UNION中的第二个及以后查询 6. UNION RESULT：UNION结果</td>
+<td style="text-align:left">识别复杂查询结构，优化子查询和派生表</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>table</strong></td>
+<td style="text-align:left">访问的表</td>
+<td style="text-align:left">表名或别名，<derivedN>表示派生表</td>
+<td style="text-align:left">确认查询涉及的具体表</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>partitions</strong></td>
+<td style="text-align:left">匹配的分区</td>
+<td style="text-align:left">分区表使用的分区名称</td>
+<td style="text-align:left">分区裁剪优化</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>type</strong></td>
+<td style="text-align:left">访问类型（关键指标）</td>
+<td style="text-align:left"><strong>性能从好到差：</strong> 1. system：系统表，仅一行 2. const：通过主键/唯一索引查找 3. eq_ref：关联查询，使用唯一索引 4. ref：使用非唯一索引查找 5. range：索引范围扫描 6. index：全索引扫描 7. ALL：全表扫描</td>
+<td style="text-align:left">尽量避免ALL和index，优化为range或ref</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>possible_keys</strong></td>
+<td style="text-align:left">可能使用的索引</td>
+<td style="text-align:left">查询可能使用的索引列表</td>
+<td style="text-align:left">检查是否有合适的索引未被使用</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>key</strong></td>
+<td style="text-align:left">实际使用的索引</td>
+<td style="text-align:left">实际选择的索引，NULL表示未使用索引</td>
+<td style="text-align:left">对比possible_keys，确认索引选择是否合理</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>key_len</strong></td>
+<td style="text-align:left">索引长度</td>
+<td style="text-align:left">使用的索引字节数，可判断索引使用情况</td>
+<td style="text-align:left">复合索引中查看是否充分利用索引</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ref</strong></td>
+<td style="text-align:left">索引引用</td>
+<td style="text-align:left">显示索引的哪一列被使用</td>
+<td style="text-align:left">检查关联查询的索引使用</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>rows</strong></td>
+<td style="text-align:left">预估扫描行数</td>
+<td style="text-align:left">预估需要检查的行数</td>
+<td style="text-align:left">数值越大性能越差，考虑优化索引</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>filtered</strong></td>
+<td style="text-align:left">过滤百分比</td>
+<td style="text-align:left">存储引擎返回数据在服务器层过滤的比例（0-100）</td>
+<td style="text-align:left">值越小表示过滤效果越好，但大量数据过滤可能需优化</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Extra</strong></td>
+<td style="text-align:left">额外信息（关键指标）</td>
+<td style="text-align:left"><strong>常见值：</strong> 1. Using index：覆盖索引 2. Using where：服务器层过滤 3. Using temporary：使用临时表 4. Using filesort：文件排序 5. Using join buffer：使用连接缓冲区 6. Impossible WHERE：WHERE条件不可能满足</td>
+<td style="text-align:left">关注Using filesort/temporary，这些通常需要优化</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果一条sql执行很慢的话，我们通常会使用mysql自动的执行计划explain来去查看这条sql的执行情况，比如在这里面可以通过key和key_len检查是否命中了索引，如果本身已经添加了索引，也可以判断索引是否有失效的情况。第二个，可以通过type字段查看sql是否有进一步的优化空间，是否存在全索引扫描或全盘扫描，第三个可以通过extra建议来判断，是否出现了回表的情况，如果出现了，可以尝试添加索引或修改返回字段来修复</p>
+<h2 id="索引">索引
+</h2><p>什么是索引：索引 (index) 是帮助MysoL高效获取数据的数据结构 (有序) 。在数据之外，数据库系统还维护着满足特定查找算法的数据结构 (B+树) ，这些数据结构以某种方式引用 (指向) 数据， 这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引。</p>
+<p>索引的底层数据结构是什么：</p>
+<p>MySQL的默认的存储引擎InnoDB采用的B+树的数据结构来存储索引，选择B+树的主要的原因是：第一阶数更多，路径更短，第二个磁盘读写代价B+树更低，非叶子节点只存储指针，叶子阶段存储数据，第三是B+树便于扫库和区间查询，叶子节点是一个双向链表</p>
+<p>B树和B+树的区别是什么呢?</p>
+<p>第一：在B树中，非叶子节点和叶子节点都会存放数据，而B+树的所有的数据都会出现在叶子节点，在查询的时候，B+树查找效率更加稳定</p>
+<p>第二：在进行范围查询的时候，B+树效率更高，因为B+树都在叶子节点存储，并且叶子节点是一个双向链表</p>
+<p>聚集索引和非聚集索引（二级索引）</p>
+<p>​	什么是聚簇索引什么是非聚簇索引？</p>
+<ul>
+<li>聚簇索引（聚集索引）：数据与索引放到一块，B+树的叶子节点保存了整行数据，有且只有一个</li>
+<li>非聚簇索引（二级索引）：数据与索引分开存储，B+树的叶子节点保存对应的主键，可以有多个</li>
+</ul>
+<p>​	什么是回表查询？</p>
+<p>​		通过二级索引找到对应的主键值，到聚集索引中查找整行数据，这个过程就是回表</p>
+<p>覆盖索引：覆盖索引是指查询使用了索引，返回的列，必须在索引中全部能够找到</p>
+<ul>
+<li>使用id查询，直接走聚集索引查询，一次索引扫描，直接返回数据，性能高。</li>
+<li>如果返回的列中没有创建索引，有可能会触发回表查询，尽量避免使用select *</li>
+</ul>
+<p>mysql超大分页怎么处理：</p>
+<p>在数据量比较大时，limit分页查询，需要对数据进行排序，效率低，此时使用覆盖索引+子查询，先在子查询中查询id，因为id是覆盖索引，所以在索引中查询效率快，底层是B+树，所以其实范围查询效率是快的，然后将返回的id集合，再到原来的表中做关联查询，能提高很多效率</p>
+<p>索引的创建原则：</p>
+<ul>
+<li>针对于数据量较大，且查询比较频繁的表建立索引。</li>
+<li>针对于常作为查询条件（where）、排序（order by）、分组（group by）操作的字段建立索引。</li>
+<li>尽量选择区分度高的列作为索引，尽量建立唯一索引，区分度越高，使用索引的效率越高。</li>
+<li>如果是字符串类型的字段，字段的长度较长，可以针对于字段的特点，建立前缀索引。</li>
+<li>尽量使用联合索引，减少单列索引，查询时，联合索引很多时候可以覆盖索引，节省存储空间，避免回表，提高查询效率。</li>
+<li>要控制索引的数量，索引并不是多多益善，索引越多，维护索引结构的代价也就越大，会影响增删改的效率。</li>
+<li>如果索引列不能存储NULL值，请在创建表时使用NOT NULL约束它。当优化器知道每列是否包含NULL值时，它可以更好地确定哪个索引最有效地用于查询。</li>
+</ul>
+<p>索引失效的场景：</p>
+<p>索引失效情况及其解释：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>索引失效情况</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>违反最左前缀法则</td>
+<td>在使用联合索引时，查询条件必须从索引的最左列开始，否则索引将无法生效。</td>
+</tr>
+<tr>
+<td>范围查询右边的列，不能使用索引</td>
+<td>当查询条件中使用了范围查询（如 <code>&gt;</code>、<code>&lt;</code>、<code>BETWEEN</code>）后，其右边的列将无法使用索引进行进一步筛选。</td>
+</tr>
+<tr>
+<td>不要在索引列上进行运算操作，索引将失效</td>
+<td>如果在索引列上进行函数运算、算术运算或表达式操作，数据库将无法直接使用该索引进行查询。</td>
+</tr>
+<tr>
+<td>字符串不加单引号，造成索引失效（类型转换）</td>
+<td>如果字符串类型的列在查询时未加引号，数据库可能会进行隐式类型转换，导致索引无法使用。</td>
+</tr>
+<tr>
+<td>以 <code>%</code> 开头的 Like 模糊查询，索引失效</td>
+<td>如果使用 <code>LIKE '%xxx'</code> 这种以通配符开头的模糊查询，索引将无法被有效利用，通常只支持 <code>LIKE 'xxx%'</code> 使用索引。</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sql优化">sql优化
+</h2><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>优化方向</th>
+<th style="text-align:left">具体措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. 表的设计与数据类型选择</strong></td>
+<td style="text-align:left">- 合理设计表结构，遵循范式与反范式平衡<br>- 选择合适数据类型（如用 INT 代替 BIGINT）<br>- 尽量使用 NOT NULL 约束<br>- 合理使用分区表</td>
+</tr>
+<tr>
+<td><strong>2. 索引优化</strong></td>
+<td style="text-align:left">- 在 WHERE、ORDER BY、GROUP BY 相关列创建索引<br>- 优先使用联合索引<br>- 为区分度高的列建索引<br>- 控制索引数量，定期清理冗余索引</td>
+</tr>
+<tr>
+<td><strong>3. SQL 语句优化</strong></td>
+<td style="text-align:left">- 避免 SELECT *，只取所需字段<br>- 使用 EXPLAIN 分析执行计划<br>- 避免 WHERE 中对字段进行函数运算<br>- 用 INNER JOIN 替代子查询（合适时）<br>- 优化分页查询，避免大数据量翻页</td>
+</tr>
+<tr>
+<td><strong>4. 主从复制与读写分离</strong></td>
+<td style="text-align:left">- 配置主从复制，读操作分流至从库<br>- 使用读写分离中间件或框架<br>- 避免写操作阻塞读操作<br>- 监控主从同步延迟</td>
+</tr>
+<tr>
+<td><strong>5. 分库分表</strong></td>
+<td style="text-align:left">- 水平分表（按时间、ID 范围等）<br>- 垂直分表（按业务模块拆分字段）<br>- 分库（按业务模块分库）<br>- 使用分库分表中间件（如 ShardingSphere）<br>- 合理设计分片键，处理跨库查询</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="事务">事务
+</h2><p>什么是事务：事务是一组操作的集合，它是一个不可分割的工作单位，系统会将这些操作一起提交或者撤销，即同时成功或者同时失败</p>
+<p>ACID:</p>
+<p><strong>原子性（Atomicity）</strong>：事务是不可分割的最小操作单元，要么全部成功，要么全部失败。</p>
+<p><strong>一致性（Consistency）</strong>：事务完成时，必须使所有的数据都保持一致状态。</p>
+<p><strong>隔离性（Isolation）</strong>：数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行。</p>
+<p><strong>持久性（Durability）</strong>：事务一旦提交或回滚，它对数据库中的数据的改变就是永久的。</p>
+<p>事务并发问题：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>脏读</strong></td>
+<td>一个事务读取到另一个事务尚未提交的数据。</td>
+</tr>
+<tr>
+<td><strong>不可重复读</strong></td>
+<td>一个事务先后读取同一条记录，但两次读取的数据不同。</td>
+</tr>
+<tr>
+<td><strong>幻读</strong></td>
+<td>一个事务按照条件查询数据时未找到对应行，但在插入数据时又发现该行已存在，仿佛出现“幻影”。</td>
+</tr>
+</tbody>
+</table></div>
+<p>事务隔离级别:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>中文说明</th>
+<th>可能存在的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>READ UNCOMMITTED</strong></td>
+<td>未提交读</td>
+<td>脏读、不可重复读、幻读</td>
+</tr>
+<tr>
+<td><strong>READ COMMITTED</strong></td>
+<td>读已提交</td>
+<td>不可重复读、幻读</td>
+</tr>
+<tr>
+<td><strong>REPEATABLE READ</strong></td>
+<td>可重复读</td>
+<td>幻读</td>
+</tr>
+<tr>
+<td><strong>SERIALIZABLE</strong></td>
+<td>串行化</td>
+<td>无</td>
+</tr>
+</tbody>
+</table></div>
+<p>实际上可重复读的隔离级别可以解决部分幻读问题</p>
+<p>在 MySQL InnoDB 引擎的“可重复读（REPEATABLE READ）”隔离级别下，幻读问题在实际应用中被有效解决了，但这属于数据库对标准隔离级别的增强实现，而非 SQL 标准的强制要求</p>
+<ul>
+<li><strong>从 SQL 标准来看</strong>：可重复读级别本身允许幻读。</li>
+<li><strong>从 MySQL InnoDB 实现来看</strong>：它通过 <strong>MVCC（多版本并发控制）</strong> 和 <strong>间隙锁（Next-Key Lock）</strong> 两种机制的协同作用，分别解决了“快照读”和“当前读”场景下的幻读问题：
+<ol>
+<li><strong>MVCC</strong>：确保事务内普通的 <code>SELECT</code> 查询（快照读）基于一致性视图，看不到其他事务插入的数据。</li>
+<li><strong>间隙锁</strong>：对涉及范围查询的加锁操作（如 <code>SELECT ... FOR UPDATE</code>），会锁住记录之间的“间隙”，阻止其他事务插入新记录。</li>
+</ol>
+</li>
+</ul>
+<p>因此，虽然从严格意义上讲，标准并未强制要求可重复读解决幻读，但 <strong>InnoDB 的实际实现已经将幻读风险降至极低，可以认为在该级别下幻读被“有效防御”了</strong>。这也是 MySQL 选择 <code>REPEATABLE READ</code> 作为默认隔离级别的重要原因。</p>
+<p>redolog和undolog：</p>
+<p>redolog：在数据库存储层面，实际上存储分为两个层次，缓冲层和磁盘层，缓存层面是基于内存的，会将磁盘层中的数据页加载到缓冲层中便于数据的查询和修改，而当进行增删改查的操作时，首先会进入到缓冲层中查询数据页，然后进行修改，缓存层再将修改后的数据同步到磁盘层，在这中间，就有redolog bufffer来记录数据页的变化，然后同步到磁盘层，但是如果还未同步服务器就宕机了，那么就会造成数据的丢失，所以在事务提交之后，会将缓冲中的所有修改信息存到redolog file日志文件中，用于刷新脏页到磁盘时发生错误，进行数据恢复使用，这就是redolog</p>
+<p>undolog：回滚日志，用于记录数据被修改前的信息，作用包含两个：提供回滚 和 MVCC（多版本并发控制）。undo log和redo log记录物理日志不一样，它是逻辑日志。</p>
+<ul>
+<li>可以认为当delete一条记录时，undo log中会记录一条对应的insert记录，反之亦然。</li>
+<li>当update一条记录时，它记录一条对应相反的update记录。当执行rollback时，就可以从undo log中的逻辑记录读取到相应的内容并进行回滚。</li>
+</ul>
+<p>undo log和redo log的区别</p>
+<ul>
+<li>redo log：记录的是数据页的物理变化，服务宕机可用来同步数据</li>
+<li>undo log：记录的是逻辑日志，当事务回滚时，通过逆操作恢复原来的数据</li>
+<li>redo log保证了事务的持久性，undo log保证了事务的原子性和一致性</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/java%E5%90%8E%E7%AB%AF/">Java后端</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/rabbitmq%E5%9F%BA%E7%A1%80/">
+        
+        
+            <div class="article-image">
+                <img src="/p/rabbitmq%E5%9F%BA%E7%A1%80/image.12aa1ca5a4449db28b2d977929777383_hu606158492152099387.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post RabbitMQ基础"
+                        
+                        data-hash="md5-EqocpaREnbKLLZd5KXdzgw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RabbitMQ基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/rabbitmq%E9%AB%98%E7%BA%A7/">
+        
+        
+            <div class="article-image">
+                <img src="/p/rabbitmq%E9%AB%98%E7%BA%A7/image.12aa1ca5a4449db28b2d977929777383_hu606158492152099387.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post RabbitMQ高级"
+                        
+                        data-hash="md5-EqocpaREnbKLLZd5KXdzgw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RabbitMQ高级</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/redis%E5%88%9D%E7%BA%A7/">
+        
+        
+            <div class="article-image">
+                <img src="/p/redis%E5%88%9D%E7%BA%A7/image.12aa1ca5a4449db28b2d977929777383_hu606158492152099387.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Redis初级"
+                        
+                        data-hash="md5-EqocpaREnbKLLZd5KXdzgw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Redis初级</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/redis%E5%AE%9E%E6%88%98/">
+        
+        
+            <div class="article-image">
+                <img src="/p/redis%E5%AE%9E%E6%88%98/image.12aa1ca5a4449db28b2d977929777383_hu606158492152099387.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Redis实战"
+                        
+                        data-hash="md5-EqocpaREnbKLLZd5KXdzgw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Redis实战</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/redis%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+        
+        
+            <div class="article-image">
+                <img src="/p/redis%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/image.12aa1ca5a4449db28b2d977929777383_hu606158492152099387.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Redis快速入门"
+                        
+                        data-hash="md5-EqocpaREnbKLLZd5KXdzgw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Redis快速入门</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="nova-bryan/nova-bryan.github.io"
+    data-repo-id="R_kgDOOTfQCg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOOTfQCs4CowIa"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        
+            NovaBryan的博客 <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
