@@ -7,7 +7,17 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Thu, 03 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://nova-bryan.github.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 12 Dec 2025 18:04:19 +0800</lastBuildDate><atom:link href="https://nova-bryan.github.io/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>日记</title>
+        <link>https://nova-bryan.github.io/p/%E6%97%A5%E8%AE%B0/</link>
+        <pubDate>Fri, 12 Dec 2025 18:04:19 +0800</pubDate>
+        
+        <guid>https://nova-bryan.github.io/p/%E6%97%A5%E8%AE%B0/</guid>
+        <description>&lt;img src="https://nova-bryan.github.io/image.png" alt="Featured image of post 日记" /&gt;&lt;p&gt;2025-12-12&lt;/p&gt;
+&lt;p&gt;学习java满打满算也快两年了，从一开始的springboot web课程开始，到现在开始看面试题，中间也去公司实习了一次，但是现在社会上的老程序员对于行业的评价，让我不由得怀疑，这是否是一条正确的路，程序员真的能通过技术层面得到自己想要的生活吗？不断的更新迭代，十年前只需要会一个springboot和mybatis就能成为小组长，到现在需要接触到langchain4j和spring ai这种框架，时代淘汰了一批又一批的程序员，我不是装作少年老成，我是感觉到了一种前途迷茫的无力感，其实我不是一个擅长学习的人，我本性贪玩，懒惰，越长大越发现自己是一个普通人，但是我想担负起责任，不论是对家人还是恋人还是自己，我想要的是一个理想的生活，我的资本是少年心气，我并不害怕失败，但恐惧失败，这是一个病句，但也是我心理的真实写照，人生没有几次从来的机会，但是人生的容错很高，我想说的是，哪怕以后当程序员失败了，我也不想放弃那份责任，路很多，我要走上自己最好的人生&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>LeetCode42.接雨水</title>
         <link>https://nova-bryan.github.io/p/leetcode42.%E6%8E%A5%E9%9B%A8%E6%B0%B4/</link>
         <pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate>
