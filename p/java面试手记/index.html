@@ -358,8 +358,51 @@
         <li><a href="#什么是数组">什么是数组</a></li>
         <li><a href="#arraylist底层实现原理">ArrayList底层实现原理</a></li>
         <li><a href="#如何实现数组和list之间的转换">如何实现数组和List之间的转换</a></li>
+        <li><a href="#arraylist和linkedlist的区别">ArrayList和LinkedList的区别</a></li>
+        <li><a href="#二叉树">二叉树</a></li>
+        <li><a href="#红黑树">红黑树</a></li>
+        <li><a href="#散列表">散列表</a></li>
+        <li><a href="#hashmap的底层实现原理">HashMap的底层实现原理</a></li>
+        <li><a href="#hashmap的put方法的具体流程">HashMap的put方法的具体流程</a></li>
+        <li><a href="#hashmap的扩容机制">HashMap的扩容机制</a></li>
+        <li><a href="#hashmap的寻址算法">hashmap的寻址算法</a></li>
+        <li><a href="#hashmap在17版本中的多线程死循环问题">HashMap在1.7版本中的多线程死循环问题</a></li>
       </ol>
     </li>
+  </ol>
+
+  <ol>
+    <li><a href="#线程与进程的区别">线程与进程的区别</a></li>
+    <li><a href="#并行和并发的区别">并行和并发的区别</a></li>
+    <li><a href="#创建线程的方式有哪些">创建线程的方式有哪些</a></li>
+    <li><a href="#线程之间的状态切换">线程之间的状态切换</a></li>
+    <li><a href="#如何保证线程的顺序执行">如何保证线程的顺序执行</a></li>
+    <li><a href="#notify和notifyall的区别是什么">notify和notifyall的区别是什么</a></li>
+    <li><a href="#java中wait和sleep方法有什么不同">java中wait（）和sleep（）方法有什么不同</a></li>
+    <li><a href="#如何停止一个正在运行的线程">如何停止一个正在运行的线程</a></li>
+    <li><a href="#synchronized关键字的底层原理">synchronized关键字的底层原理</a></li>
+    <li><a href="#jmmjava内存模型">JMM（java内存模型）</a></li>
+    <li><a href="#cas">CAS</a></li>
+    <li><a href="#volatile关键字">volatile关键字</a></li>
+    <li><a href="#什么是aqs">什么是AQS?</a></li>
+    <li><a href="#reentranlock的实现原理">ReentranLock的实现原理</a></li>
+    <li><a href="#synchronized和lock的区别是什么">synchronized和lock的区别是什么</a></li>
+    <li><a href="#死锁产生条件以及排查方案">死锁产生条件以及排查方案</a></li>
+    <li><a href="#concurrenthashmap">ConcurrentHashMap</a></li>
+    <li><a href="#导致并发程序出现的问题原因">导致并发程序出现的问题原因</a></li>
+    <li><a href="#线程池的执行原理和核心参数">线程池的执行原理和核心参数</a></li>
+    <li><a href="#线程池中常见的阻塞队列">线程池中常见的阻塞队列</a></li>
+    <li><a href="#如何确定核心线程数">如何确定核心线程数</a></li>
+    <li><a href="#线程池的种类有哪些">线程池的种类有哪些</a></li>
+    <li><a href="#为什么不建议使用executor创建线程池">为什么不建议使用Executor创建线程池</a></li>
+    <li><a href="#多线程使用场景">多线程使用场景</a></li>
+    <li><a href="#threadlocal的理解">ThreadLocal的理解</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#jvm有哪些部分组成运行流程是什么">JVM有哪些部分组成，运行流程是什么</a></li>
+    <li><a href="#什么是程序计数器">什么是程序计数器</a></li>
+    <li><a href="#什么是java堆">什么是java堆</a></li>
   </ol>
 </nav>
         </div>
@@ -2382,7 +2425,1029 @@ Partition tolerance (分区容错性)</p>
 		data-flex-basis="487px"
 	
 ></p>
-
+<h3 id="arraylist和linkedlist的区别">ArrayList和LinkedList的区别
+</h3><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407154202218.png"
+	width="2114"
+	height="1019"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407154202218_hu1090620324715377680.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407154202218_hu8272640891124233485.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407154202218"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="497px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407154220428.png"
+	width="2155"
+	height="915"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407154220428_hu15038459363852431588.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407154220428_hu2756718566440670563.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407154220428"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="235"
+		data-flex-basis="565px"
+	
+></p>
+<p>保证线程安全，这个场景问题我们当时遇到过，当时项目上线的时候，苹果官方要求给一个账号，他们去测试，因为我们当时是没有明文密码进行登录的，只有手机验证码登录，所以当时在登录方法中临时添加了一个list，用来存储不会被校验的手机号，使用固定的验证码，当时为了保证线程安全，首先是将队列定义在了方法内，但是因为这种情况可能会造成OOM内存泄漏，所以后面更改为了一个final对象，不允许更改，实际上也保证了线程安全</p>
+<h3 id="二叉树">二叉树
+</h3><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407160901922.png"
+	width="1454"
+	height="920"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407160901922_hu11998341719418435600.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407160901922_hu17815005059408135954.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407160901922"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="379px"
+	
+></p>
+<h3 id="红黑树">红黑树
+</h3><p>红黑树的五个性质</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407161351842.png"
+	width="2163"
+	height="1101"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407161351842_hu14205639704978410563.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407161351842_hu13722424236849417006.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407161351842"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="196"
+		data-flex-basis="471px"
+	
+></p>
+<p>红黑树的复杂度</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407161417770.png"
+	width="2230"
+	height="1049"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407161417770_hu14509915377173384119.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407161417770_hu11210142540057008861.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407161417770"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="212"
+		data-flex-basis="510px"
+	
+></p>
+<h3 id="散列表">散列表
+</h3><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407162607362.png"
+	width="1308"
+	height="1000"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407162607362_hu12720201377320550123.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407162607362_hu10107205044703935322.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407162607362"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="130"
+		data-flex-basis="313px"
+	
+></p>
+<h3 id="hashmap的底层实现原理">HashMap的底层实现原理
+</h3><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407162926120.png"
+	width="1953"
+	height="924"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407162926120_hu2742556169822235286.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407162926120_hu12140909776390105199.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407162926120"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="507px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407162937447.png"
+	width="2177"
+	height="966"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407162937447_hu4397152933004859449.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407162937447_hu3570980091926657788.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407162937447"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="225"
+		data-flex-basis="540px"
+	
+></p>
+<h3 id="hashmap的put方法的具体流程">HashMap的put方法的具体流程
+</h3><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407164257590.png"
+	width="2226"
+	height="1119"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407164257590_hu11199488338518486329.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407164257590_hu9394442411134696869.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407164257590"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="477px"
+	
+></p>
+<p>这个图将put的原理阐述的很清楚，多看</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407164745187.png"
+	width="2147"
+	height="825"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407164745187_hu2666285584510966702.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407164745187_hu14075102404303833881.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407164745187"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="260"
+		data-flex-basis="624px"
+	
+></p>
+<h3 id="hashmap的扩容机制">HashMap的扩容机制
+</h3><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407182250896.png"
+	width="2272"
+	height="1131"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407182250896_hu1447624699423827892.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407182250896_hu3838174773672589223.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407182250896"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="482px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407182257929.png"
+	width="2148"
+	height="1070"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407182257929_hu6062192867621785049.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407182257929_hu7832707528897646534.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407182257929"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="481px"
+	
+></p>
+<h3 id="hashmap的寻址算法">hashmap的寻址算法
+</h3><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407183357829.png"
+	width="2161"
+	height="1021"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407183357829_hu18223616860131868617.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407183357829_hu17856585151614226144.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407183357829"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="507px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407183840142.png"
+	width="1402"
+	height="957"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407183840142_hu8714993615458179994.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407183840142_hu2947586882095478378.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407183840142"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="146"
+		data-flex-basis="351px"
+	
+></p>
+<h3 id="hashmap在17版本中的多线程死循环问题">HashMap在1.7版本中的多线程死循环问题
+</h3><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407185306298.png"
+	width="2171"
+	height="1036"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407185306298_hu886740446042956230.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260407185306298_hu3619994470586229044.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260407185306298"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="209"
+		data-flex-basis="502px"
+	
+></p>
+<h1 id="并发编程篇">并发编程篇
+</h1><h2 id="线程与进程的区别">线程与进程的区别
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409160708565.png"
+	width="1515"
+	height="801"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409160708565_hu16782472751106599452.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409160708565_hu10590586770934013172.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409160708565"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="189"
+		data-flex-basis="453px"
+	
+></p>
+<h2 id="并行和并发的区别">并行和并发的区别
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409160959853.png"
+	width="1069"
+	height="362"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409160959853_hu15966371839910203730.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409160959853_hu4820345230429711256.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409160959853"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="295"
+		data-flex-basis="708px"
+	
+></p>
+<h2 id="创建线程的方式有哪些">创建线程的方式有哪些
+</h2><p>创建线程的方式有四种方式</p>
+<p>第一种是继承一个Thread类</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409183933204.png"
+	width="1158"
+	height="763"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409183933204_hu15068028459294550075.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409183933204_hu1169644126958899120.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409183933204"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="364px"
+	
+></p>
+<p>第二种是实现一个runnable接口</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185108371.png"
+	width="787"
+	height="772"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185108371_hu12460721825495364490.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185108371_hu11580533176079815967.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409185108371"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="101"
+		data-flex-basis="244px"
+	
+></p>
+<p>第三种是实现一个Callable接口</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185117211.png"
+	width="1195"
+	height="794"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185117211_hu8899385785099053737.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185117211_hu13260863055558920804.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409185117211"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="150"
+		data-flex-basis="361px"
+	
+></p>
+<p>第四种是通过创建线程池来创建线程，但是也要继承runnable接口</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185126175.png"
+	width="990"
+	height="713"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185126175_hu13425567054908728585.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185126175_hu1777270083917509902.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409185126175"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="138"
+		data-flex-basis="333px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185535292.png"
+	width="1039"
+	height="778"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185535292_hu4717590571432255571.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185535292_hu15772827895455866848.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409185535292"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="133"
+		data-flex-basis="320px"
+	
+></p>
+<h2 id="线程之间的状态切换">线程之间的状态切换
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185936185.png"
+	width="1690"
+	height="806"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185936185_hu14893013389475789015.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409185936185_hu4817300106896248943.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409185936185"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="209"
+		data-flex-basis="503px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409190012062.png"
+	width="1076"
+	height="764"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409190012062_hu14087397562007646797.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409190012062_hu5655742929110635981.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409190012062"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="140"
+		data-flex-basis="338px"
+	
+></p>
+<h2 id="如何保证线程的顺序执行">如何保证线程的顺序执行
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409190318204.png"
+	width="1648"
+	height="765"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409190318204_hu18423076476416203890.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409190318204_hu13395451103667222252.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409190318204"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="215"
+		data-flex-basis="517px"
+	
+></p>
+<h2 id="notify和notifyall的区别是什么">notify和notifyall的区别是什么
+</h2><p>notify随机唤醒一个wait的线程</p>
+<p>notify则是唤醒所有wait的线程</p>
+<h2 id="java中wait和sleep方法有什么不同">java中wait（）和sleep（）方法有什么不同
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409190852203.png"
+	width="1469"
+	height="828"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409190852203_hu8583904979971841309.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260409190852203_hu5095928493191866720.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260409190852203"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="425px"
+	
+></p>
+<p>首先wait方法是必须要获取到对象的，也就是必须配合synchronized进行使用，而sleep不用</p>
+<p>wait方法执行后会释放掉对象的锁，而sleep不会</p>
+<h2 id="如何停止一个正在运行的线程">如何停止一个正在运行的线程
+</h2><p>有三种方式</p>
+<p>第一种是自定义一个退出标志，使线程正常退出，也就是run方法结束之后，线程终止</p>
+<p>第二种是通过stop方法来强行终止，但是这个方法已经被启用</p>
+<p>具体原因是</p>
+<ol>
+<li><strong>立即解锁所有已获得的锁（最关键的问题）</strong>
+<ul>
+<li><code>stop()</code>会强制线程立即停止，并<strong>释放它持有的所有监视器锁</strong>（synchronized锁）。</li>
+<li>这会导致被这些锁保护的对象状态突然暴露给其他线程。而此时，对象的数据可能只修改了一半，处于<strong>不一致状态</strong>。</li>
+<li>其他等待锁的线程会立刻获得锁，并读取到这种损坏的数据，导致程序逻辑错乱、计算出错误结果，甚至崩溃。</li>
+</ul>
+</li>
+<li><strong>破坏原子操作</strong>
+<ul>
+<li>假设一个银行转账操作：先从一个账户扣款，再向另一个账户加款。如果<code>stop()</code>在这两步之间发生，锁被释放。</li>
+<li>结果就是：第一个账户钱少了，第二个账户钱却没增加。一笔钱凭空消失，数据永久损坏。</li>
+</ul>
+</li>
+<li><strong>无法进行资源清理</strong>
+<ul>
+<li>线程被强制停止时，无法执行任何清理代码（如关闭文件流、数据库连接、释放本地资源等）。</li>
+<li>这些资源泄露会积累，最终导致系统资源耗尽。</li>
+</ul>
+</li>
+<li><strong>异常难以捕获和处理</strong>
+<ul>
+<li><code>stop()</code>会让线程抛出一个<code>ThreadDeath</code>错误。虽然可以捕获它，但即使你捕获了，<code>stop()</code>依然会强制终止线程，你的清理代码未必能完整执行。而且，捕获这个错误并尝试恢复本身也是不安全的</li>
+</ul>
+</li>
+</ol>
+<p>第三种是使用interrupt方法，它属于Thread类，这个方法能实现优雅中断，不会强制终止线程，而是让线程自己决定什么时候终止，也是使用了退出标志的思想</p>
+<ul>
+<li><code>Thread.interrupted()</code>：<strong>静态方法</strong>，返回当前线程中断标志，并<strong>清除标志</strong></li>
+<li><code>thread.isInterrupted()</code>：实例方法，<strong>只读</strong>，不清除标志</li>
+</ul>
+<h2 id="synchronized关键字的底层原理">synchronized关键字的底层原理
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410165650490.png"
+	width="1057"
+	height="511"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410165650490_hu4732567398267529866.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410165650490_hu12823760917401716306.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260410165650490"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="206"
+		data-flex-basis="496px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410165702955.png"
+	width="1635"
+	height="762"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410165702955_hu9076306169659353900.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410165702955_hu17066131385512344115.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260410165702955"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="214"
+		data-flex-basis="514px"
+	
+></p>
+<p>进阶</p>
+<p>在我们知道的synchronized锁中，其实包含了三种锁</p>
+<p>第一种锁也就是通过monitor去实现的重量级锁</p>
+<p>这种锁一般都是在多线程，并且有锁的竞争情况下使用，性能偏低，但是安全，通过Monitor的Owner去表明锁是否被持有</p>
+<p>第二种锁是轻量级锁，首先介绍一下对象在内存中的存储结构</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410193949433.png"
+	width="1591"
+	height="664"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410193949433_hu3966189340677801966.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410193949433_hu15489415278678519614.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260410193949433"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="239"
+		data-flex-basis="575px"
+	
+></p>
+<p>在MarkWord中，也就是对象头，我们可以知道当前对象是否被加锁</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410194034462.png"
+	width="1476"
+	height="432"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410194034462_hu10889965824280752496.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410194034462_hu2065223589524778018.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260410194034462"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="341"
+		data-flex-basis="820px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410194113364.png"
+	width="1639"
+	height="720"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410194113364_hu586592433577731864.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410194113364_hu8875491199415339747.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260410194113364"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="227"
+		data-flex-basis="546px"
+	
+></p>
+<p>如果是轻量级锁，在线程进入的时候，会在栈帧中记录一个lock record，里面包含了一个lock record 00地址，它会通过cas的方式，在确保原子性的情况下，和对象的mark word进行数据交换，将lock record 00地址放入到mark word中，表面当前线程已经持有了这把锁，轻量级锁实际上也是可重入锁，如果后续线程还要获取锁，就会在线程的栈帧中新加一个lock record，同样也会和对象进行cas操作，但是lock record为空</p>
+<p>如果是偏向锁，也就是说只有当前线程会很长时间持有这把锁，不存在锁的竞争，那么就会使用偏向锁，偏向锁同样也是通过cas去完成数据交换，但是它是向对象存入自己的线程id，后续再获取锁，如果发现线程id和自己一样，就不会进行cas操作，直接生成lock record，性能上面来说，比轻量级锁更好</p>
+<h2 id="jmmjava内存模型">JMM（java内存模型）
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410200013216.png"
+	width="1553"
+	height="705"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410200013216_hu16389363732969496784.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410200013216_hu6597066643930343577.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260410200013216"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="220"
+		data-flex-basis="528px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410200019090.png"
+	width="991"
+	height="415"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410200019090_hu12464786924871276951.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260410200019090_hu2041716264662618509.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260410200019090"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="238"
+		data-flex-basis="573px"
+	
+></p>
+<h2 id="cas">CAS
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412154852349.png"
+	width="1042"
+	height="650"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412154852349_hu2885041595176392416.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412154852349_hu7383732447496139951.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260412154852349"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="160"
+		data-flex-basis="384px"
+	
+></p>
+<p>CAS本质上是一种乐观锁的思想，是通过自旋的思想来加锁的，在不加锁的情况下也能保证操作数据的原子性，在synchronized的轻量级锁和偏向锁中，获取锁的时候，就用到了CAS，并且CAS底层调用的是Unsafe类中的方法，实际上是操作系统的本地方法，因为没有使用到锁，不涉及线程的阻塞，所以它的效率是比较高的</p>
+<h2 id="volatile关键字">volatile关键字
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412163649944.png"
+	width="1568"
+	height="624"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412163649944_hu9052285960847271450.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412163649944_hu9296632291014682168.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260412163649944"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="251"
+		data-flex-basis="603px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412165102857.png"
+	width="1643"
+	height="807"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412165102857_hu6577678011877147533.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412165102857_hu8465800861757346602.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260412165102857"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="203"
+		data-flex-basis="488px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412165127044.png"
+	width="983"
+	height="432"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412165127044_hu1861875616391003169.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412165127044_hu4610266875521352275.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260412165127044"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="227"
+		data-flex-basis="546px"
+	
+></p>
+<p>保证线程之间共享变量可见性，因为编译器优化可能会导致变量消失，禁止指令重排序，保证指令按顺序执行，读写操作用了volatile修饰变量之后，会加上屏障</p>
+<h2 id="什么是aqs">什么是AQS?
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412181550189.png"
+	width="1035"
+	height="776"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412181550189_hu4057617997953858683.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412181550189_hu1109354205082153945.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260412181550189"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="133"
+		data-flex-basis="320px"
+	
+></p>
+<ul>
+<li>新的线程与队列中的线程共同来抢资源，是非公平锁</li>
+<li>新的线程到队列中等待，只让队列中的head线程获取锁，是公平锁</li>
+</ul>
+<h2 id="reentranlock的实现原理">ReentranLock的实现原理
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412182038410.png"
+	width="987"
+	height="389"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412182038410_hu12926425632493069495.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412182038410_hu3514552602411306151.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260412182038410"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="253"
+		data-flex-basis="608px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412182053336.png"
+	width="1639"
+	height="799"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412182053336_hu1488873534213159782.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412182053336_hu12079095466529302338.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260412182053336"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="205"
+		data-flex-basis="492px"
+	
+></p>
+<h2 id="synchronized和lock的区别是什么">synchronized和lock的区别是什么
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412185122710.png"
+	width="1487"
+	height="768"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412185122710_hu13175045555247912669.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260412185122710_hu233044661925064221.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260412185122710"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="193"
+		data-flex-basis="464px"
+	
+></p>
+<p>lock锁中，主要区别的是它具备了许多synchronnized不具备的功能，公平锁，可打断，可超时，还可以使用多个条件变量，唤醒锁使用signal，signalall，和notify与notifyall是一样的</p>
+<h2 id="死锁产生条件以及排查方案">死锁产生条件以及排查方案
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413101621883.png"
+	width="988"
+	height="585"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413101621883_hu11373209073718870632.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413101621883_hu10606510644202981742.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413101621883"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="168"
+		data-flex-basis="405px"
+	
+></p>
+<p>死锁情况模拟</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413101656186.png"
+	width="787"
+	height="801"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413101656186_hu4394952435723880828.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413101656186_hu4571270797262304228.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413101656186"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="98"
+		data-flex-basis="235px"
+	
+></p>
+<h2 id="concurrenthashmap">ConcurrentHashMap
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413103143573.png"
+	width="1031"
+	height="458"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413103143573_hu7486657948848677922.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413103143573_hu7925088478241886024.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413103143573"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="225"
+		data-flex-basis="540px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413103256931.png"
+	width="1602"
+	height="811"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413103256931_hu7464711762747153860.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413103256931_hu551997527541933871.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413103256931"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="474px"
+	
+></p>
+<p>ConcurrentHashMap是一个线程安全的hashmap，在1.7版本，它主要使用的是一个segment数组加上hashEntry数组来实现的，并且segment数组长度不可变，底层使用Reentranlock来加锁，锁的粒度大，直接锁住一整个hashentry数组，性能较差，在1.8版本，放弃了臃肿的segment数组，底层实现与1.8版本的hashmap一样，都是使用数组加链表或红黑树，更新之后采用了CAS和synchronized锁，如果是添加新节点，就是用cas锁，保证多线程修改，只有一个能成功，如果是有hash冲突的情况，那么就会锁住链表或者红黑树的首节点，如果没有hash冲突，那么就不会有线程阻塞的情况，性能好了很多，锁的粒度也变小了</p>
+<h2 id="导致并发程序出现的问题原因">导致并发程序出现的问题原因
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413113801645.png"
+	width="830"
+	height="349"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413113801645_hu570623858446497065.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413113801645_hu466380902136078478.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413113801645"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="237"
+		data-flex-basis="570px"
+	
+></p>
+<p>要保证原子性，即为要保证线程中方法一次性执行完，不能中断或者被其他线程打断，这时候可以使用jvm中的sychronized或者jdk提供的lock来锁住线程，让方法保证原子性，其次，共享内存中的数据，要保证起线程之间的可见性，JIT会对代码进行优化，所以有时候共享变量会消失，使用volatile关键字去保证共享变量的可见性，它能去让编译器取消对这个共享变量的优化，也可以使用加锁的方式</p>
+<p>锁如何保证可见性？</p>
+<p>Java 内存模型（JMM）规定，锁的获取与释放和主内存之间有以下强制性的交互：</p>
+<ol>
+<li><strong>获取锁时</strong>：当一个线程获取锁时，它会<strong>清空自己的工作内存</strong>中的共享变量副本，强制后续的读取操作去<strong>主内存中重新获取最新的值</strong> 。</li>
+<li><strong>释放锁时</strong>：当一个线程释放锁时，它必须将在工作内存中被修改过的共享变量<strong>刷新回主内存中</strong> 。</li>
+</ol>
+<p>这样，通过锁的&quot;获取&quot;和&quot;释放&quot;操作，就在不同线程间建立了一个&quot;<strong>一写多读</strong>&ldquo;的可见性桥梁：上一个释放锁的线程的修改，对下一个获取锁的线程必然可见 。</p>
+<p>这是用锁来保证内存共享变量之间的可见性</p>
+<p>最后是有序性，因为代码优化，代码执行时并不一定会按照代码行数顺序来执行，这就有可能会导致数据读写错误，使用volatile关键字来加上读写屏障，保证读写代码的顺序一致性</p>
+<h2 id="线程池的执行原理和核心参数">线程池的执行原理和核心参数
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413154154313.png"
+	width="1628"
+	height="839"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413154154313_hu1659258064553995493.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413154154313_hu563266467038351066.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413154154313"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="465px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413154225678.png"
+	width="1312"
+	height="745"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413154225678_hu8622886776619976300.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413154225678_hu12448199428186349949.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413154225678"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="176"
+		data-flex-basis="422px"
+	
+></p>
+<h2 id="线程池中常见的阻塞队列">线程池中常见的阻塞队列
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413163837800.png"
+	width="1411"
+	height="389"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413163837800_hu615983089982506168.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413163837800_hu12702804361358654979.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413163837800"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="362"
+		data-flex-basis="870px"
+	
+></p>
+<p>一般来说都是使用ArrayBlockingQueue和LinkedBlockingQueue</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413163911399.png"
+	width="1541"
+	height="779"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413163911399_hu15250041730252331401.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413163911399_hu8069426594576098815.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413163911399"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="474px"
+	
+></p>
+<p>因为LinkedBlockingQueue出队和入队使用的是两把锁，所以实际上LinkedBlockingQueue效率会好一些，但是初始化的时候最好加上最大长度，也就是初始化成有界的状态。</p>
+<h2 id="如何确定核心线程数">如何确定核心线程数
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413164259272.png"
+	width="1610"
+	height="567"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413164259272_hu2709444953022332878.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413164259272_hu9700051496913743564.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413164259272"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="283"
+		data-flex-basis="681px"
+	
+></p>
+<h2 id="线程池的种类有哪些">线程池的种类有哪些
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413164540021.png"
+	width="1327"
+	height="669"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413164540021_hu8762805583267583830.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413164540021_hu17913869658290889554.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413164540021"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+><img src="/java%25E9%259D%25A2%25E8%25AF%2595%25E7%25AC%2594%25E8%25AE%25B0/image-20260413164654315.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260413164654315"
+	
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165136443.png"
+	width="1397"
+	height="505"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165136443_hu1883247388446649298.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165136443_hu15701210475021915801.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413165136443"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="276"
+		data-flex-basis="663px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165147675.png"
+	width="1604"
+	height="639"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165147675_hu11538300139592654471.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165147675_hu5024796244425286395.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413165147675"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="251"
+		data-flex-basis="602px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165154044.png"
+	width="1063"
+	height="481"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165154044_hu12194693236008207087.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165154044_hu1480211942807370943.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413165154044"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="220"
+		data-flex-basis="530px"
+	
+></p>
+<h2 id="为什么不建议使用executor创建线程池">为什么不建议使用Executor创建线程池
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165442436.png"
+	width="1414"
+	height="604"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165442436_hu11241660584192280645.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165442436_hu11034161375392932090.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413165442436"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="234"
+		data-flex-basis="561px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165424594.png"
+	width="1159"
+	height="330"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165424594_hu14150536382361456725.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413165424594_hu13913893429288663835.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413165424594"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="351"
+		data-flex-basis="842px"
+	
+></p>
+<h2 id="多线程使用场景">多线程使用场景
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413172309112.png"
+	width="1039"
+	height="510"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413172309112_hu9516774383817845796.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413172309112_hu6596872796859627996.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413172309112"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="203"
+		data-flex-basis="488px"
+	
+></p>
+<p>如何控制方法中允许并发访问线程的数量</p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413174805261.png"
+	width="1575"
+	height="787"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413174805261_hu8132829981014853358.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413174805261_hu4148926404323255551.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413174805261"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="480px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413174815579.png"
+	width="978"
+	height="399"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413174815579_hu6832456079534656939.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413174815579_hu14608593054544072316.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413174815579"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="245"
+		data-flex-basis="588px"
+	
+></p>
+<h2 id="threadlocal的理解">ThreadLocal的理解
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413175612823.png"
+	width="1111"
+	height="746"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413175612823_hu13423450273304537837.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260413175612823_hu14861157778341564665.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260413175612823"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="148"
+		data-flex-basis="357px"
+	
+></p>
+<h1 id="jvm相关面试题">JVM相关面试题
+</h1><h2 id="jvm有哪些部分组成运行流程是什么">JVM有哪些部分组成，运行流程是什么
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260415172032061.png"
+	width="1540"
+	height="811"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260415172032061_hu14281580489994322548.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260415172032061_hu3093928825987801581.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260415172032061"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="189"
+		data-flex-basis="455px"
+	
+></p>
+<h2 id="什么是程序计数器">什么是程序计数器
+</h2><p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260415173037887.png"
+	width="1437"
+	height="786"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260415173037887_hu13466381904330488991.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260415173037887_hu6375408633098402966.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260415173037887"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="438px"
+	
+></p>
+<p><img src="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260415173043124.png"
+	width="982"
+	height="277"
+	srcset="/p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260415173043124_hu14601451746914400463.png 480w, /p/java%E9%9D%A2%E8%AF%95%E6%89%8B%E8%AE%B0/image-20260415173043124_hu17972902074242104237.png 1024w"
+	loading="lazy"
+	
+		alt="image-20260415173043124"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="354"
+		data-flex-basis="850px"
+	
+></p>
+<h2 id="什么是java堆">什么是java堆
+</h2>
 </section>
 
 
